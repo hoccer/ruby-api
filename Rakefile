@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "geo_store_client"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{ one-line summary of your gem}
+    gem.description = %Q{ longer description of your gem}
     gem.email = "contact@smyck.org"
     gem.homepage = "http://github.com/hukl/geo_store_client"
     gem.authors = ["hukl"]
