@@ -1,7 +1,6 @@
 h2. Usage
 
-bc..
-# Create new LinccerClient instance
+bc.. # Create new LinccerClient instance
 client = LinccerClient.new
 
 # Update client environment
@@ -30,6 +29,5 @@ bc. gem install hoccer-api
 
 or clone and build it manually via:
 
-bc..
-git clone git@github.com:hoccer/ruby-api.git
+bc.. git clone git@github.com:hoccer/ruby-api.git
 cd ruby-api && gem build hoccer-api.gemspec && gem install hoccer-api-1.0.0.gem
