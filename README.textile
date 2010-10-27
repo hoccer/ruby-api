@@ -1,0 +1,35 @@
+h2. Usage
+
+```ruby
+# Create new LinccerClient instance
+client = LinccerClient.new
+
+# Update client environment
+client.update_environment(
+  :gps => {:longitude => 12.2, :latitude => 14.2, :accuracy => 23.0}
+)
+
+# Share data
+# The share method expects a mode and an arbitrary ruby hash which will
+# be transformed to JSON and used as the payload.
+c.share( "one-to-one", :foo => "bar" )
+
+# Receive data
+# The receive method expects a mode parameter and returns a ruby hash
+# containing the payload
+c.receive( "one-to-one" )
+
+The share and receive method have threaded counterparts allowing to perform
+both actions non blocking on the same ruby process.
+
+h2. Install
+
+Install the gem via rubygems (once the api is public)
+
+bc. gem install hoccer-api
+
+or clone and build it manually via:
+
+bc..
+git clone git@github.com:hoccer/ruby-api.git
+cd ruby-api && gem build hoccer-api.gemspec && gem install hoccer-api-1.0.0.gem
