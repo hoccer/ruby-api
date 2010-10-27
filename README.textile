@@ -18,6 +18,7 @@ c.share( "one-to-one", :foo => "bar" )
 # The receive method expects a mode parameter and returns a ruby hash
 # containing the payload
 c.receive( "one-to-one" )
+```
 
 The share and receive method have threaded counterparts allowing to perform
 both actions non blocking on the same ruby process.
