@@ -14,13 +14,13 @@ Gem::Specification.new do |s|
   s.email = %q{info@hoccer.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+    "README.textile"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.textile",
      "Rakefile",
      "VERSION",
      "lib/geo_store_client.rb",
