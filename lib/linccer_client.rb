@@ -38,21 +38,8 @@ module Hoccer
       handle_response put(action_path(mode), data.to_json)
     end
 
-    def share_threaded mode, data
-      t = Thread.new do
-        share mode, data
-      end
-    end
-
     def receive mode
       handle_response get(action_path(mode))
-    end
-
-    def receive_threaded mode
-      t = Thread.new do
-        receive mode
-      end
-      t.value
     end
 
     def handle_response response = nil
