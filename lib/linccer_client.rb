@@ -2,6 +2,16 @@ require 'uuid'
 require 'json'
 require 'net/http'
 
+class Hash
+  def to_url_params
+    elements = []
+    keys.size.times do |i|
+      elements << "#{keys[i]}=#{values[i]}"
+    end
+    elements.join('&')
+  end
+end
+
 module Hoccer
   class LinccerClient
 
@@ -26,8 +36,11 @@ module Hoccer
       "/clients/#{@uuid}/environment"
     end
 
-    def action_path mode
-      "/clients/#{@uuid}/action/#{mode}"
+    def action_path mode, options = {}
+      path = "/clients/#{@uuid}/action/#{mode}"      
+      path << '?' + options.to_url_params unless options.empty?
+      
+      path
     end
 
     def update_environment data
@@ -39,7 +52,7 @@ module Hoccer
     end
 
     def receive mode, options = {}
-      handle_response get(action_path(mode))
+      handle_response get(action_path(mode, options))
     end
 
     def handle_response response = nil
