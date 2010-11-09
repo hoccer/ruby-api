@@ -38,7 +38,7 @@ module Hoccer
       handle_response put(action_path(mode), data.to_json)
     end
 
-    def receive mode
+    def receive mode, options = {}
       handle_response get(action_path(mode))
     end
 
