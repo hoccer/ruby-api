@@ -24,20 +24,20 @@ module Hoccer
 
     def initialize options = {}
       @uuid = UUID.generate
-      @host = options[:host] || "linker.beta.hoccer.com"
+      @host = options[:host] || "linccer.beta.hoccer.com"
       @port = options[:port] || 80
     end
 
     def client_path
-      "/clients/#{@uuid}"
+      "/v3/clients/#{@uuid}"
     end
 
     def environment_path
-      "/clients/#{@uuid}/environment"
+      "/v3/clients/#{@uuid}/environment"
     end
 
     def action_path mode, options = {}
-      path = "/clients/#{@uuid}/action/#{mode}"      
+      path = "/v3/clients/#{@uuid}/action/#{mode}"      
       path << '?' + options.to_url_params unless options.empty?
       
       path

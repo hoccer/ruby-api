@@ -4,8 +4,8 @@ class TestLinccerClient < Test::Unit::TestCase
   include Hoccer
 
   def test_linccer_client
-    assert c = LinccerClient.new( :host => "linker.beta.hoccer.com", :port => 80)
-    assert d = LinccerClient.new( :host => "linker.beta.hoccer.com", :port => 80)
+    assert c = LinccerClient.new( :host => "linccer.beta.hoccer.com", :port => 80)
+    assert d = LinccerClient.new( :host => "linccer.beta.hoccer.com", :port => 80)
     puts c.inspect
     puts
 
