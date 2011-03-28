@@ -37,9 +37,9 @@ module Hoccer
     end
 
     def action_path mode, options = {}
-      path = "/v3/clients/#{@uuid}/action/#{mode}"      
+      path = "/v3/clients/#{@uuid}/action/#{mode}"
       path << '?' + options.to_url_params unless options.empty?
-      
+
       path
     end
 
@@ -68,12 +68,14 @@ module Hoccer
         return true
       when "204"
         return nil
+      when "409"
+        return nil
       when "412"
         raise Hoccer::InvalidEnvironment
       else
         raise(
           Hoccer::InvalidServerResponse,
-          "#{response.header.code} + #{response.header.message}"
+          "#{response.header.code} + #{response.header.message} +\n\n #{ response.header.inspect}"
         )
       end
     end
