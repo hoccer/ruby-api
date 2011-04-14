@@ -42,6 +42,15 @@ module Hoccer
 
       path
     end
+    
+    def peek_path id = nil
+      path = "/v3/clients/#{uuid}/peek"
+      if id
+        path << '?' + 'group_id=' + id
+      end
+      
+      path
+    end
 
     def update_environment data
       handle_response put(environment_path, data.to_json)
@@ -53,6 +62,10 @@ module Hoccer
 
     def receive mode, options = {}
       handle_response get(action_path(mode, options))
+    end
+
+    def peek id = nil
+      handle_response get(peek_path(id))
     end
 
     def handle_response response = nil
